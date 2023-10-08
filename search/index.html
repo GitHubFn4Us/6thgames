@@ -1,1 +1,51 @@
-Heres the search
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - 6th.games</title>
+    <link rel="stylesheet" href="style.css"> <!-- Assuming you have a style.css file for your styles -->
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to 6th.games</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/search">Search</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main class="content">
+        <h2>Search Results</h2>
+
+        <!-- Search Form -->
+        <form action="search_results.html" method="get">
+            <input type="text" name="query" placeholder="Search for games...">
+            <input type="submit" value="Search">
+        </form>
+
+        <!-- Display Search Results -->
+        <div class="search-results">
+            <!-- Sample search result -->
+            <div class="search-result">
+                <a href="game_details.html">
+                    <img src="game1.jpg" alt="Game 1">
+                    <h3>Game 1 Title</h3>
+                </a>
+            </div>
+            <!-- Sample search result -->
+            <div class="search-result">
+                <a href="game_details.html">
+                    <img src="game2.jpg" alt="Game 2">
+                    <h3>Game 2 Title</h3>
+                </a>
+            </div>
+            <!-- Add more search results as needed -->
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 6th.games. No rights reserved stupid</p>
+    </footer>
+</body>
+</html>
