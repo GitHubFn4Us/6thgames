@@ -20,32 +20,75 @@
         <h2>Search Results</h2>
 
         <!-- Search Form -->
-        <form action="search_results.html" method="get">
-            <input type="text" name="query" placeholder="Search for games...">
+        <form onsubmit="searchGames(); return false;">
+            <input type="text" id="searchQuery" placeholder="Search for games...">
             <input type="submit" value="Search">
         </form>
 
         <!-- Display Search Results -->
-        <div class="search-results">
-            <!-- Sample search result -->
-            <div class="search-result">
-                <a href="game_details.html">
-                    <img src="game1.jpg" alt="Game 1">
-                    <h3>Game 1 Title</h3>
-                </a>
-            </div>
-            <!-- Sample search result -->
-            <div class="search-result">
-                <a href="game_details.html">
-                    <img src="game2.jpg" alt="Game 2">
-                    <h3>Game 2 Title</h3>
-                </a>
-            </div>
-            <!-- Add more search results as needed -->
+        <div class="search-results" id="searchResults">
+            <!-- Results will be dynamically added here -->
         </div>
     </main>
+
     <footer class="footer">
-        <p>&copy; 2023 6th.games. No rights reserved stupid</p>
+        <p>&copy; 2023 6th.games. No Rights Reserved Lol.</p>
     </footer>
+
+    <script>
+        function searchGames() {
+            // Get the search query
+            var query = document.getElementById('searchQuery').value.toLowerCase();
+            var resultsContainer = document.getElementById('searchResults');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            // Sample game data
+            var gamesData = [
+                {
+                    title: 'Awesome Adventure',
+                    image: 'awesome_adventure.jpg'
+                },
+                {
+                    title: 'Super Shooter',
+                    image: 'super_shooter.jpg'
+                },
+                {
+                    title: 'Mystery Mansion',
+                    image: 'mystery_mansion.jpg'
+                },
+                {
+                    title: 'Puzzle Paradise',
+                    image: 'puzzle_paradise.jpg'
+                }
+                // Add more game objects as needed
+            ];
+
+            // Filter games based on the search query
+            var filteredGames = gamesData.filter(function(game) {
+                return game.title.toLowerCase().includes(query);
+            });
+
+            // Display the filtered results
+            filteredGames.forEach(function(game) {
+                var resultElement = document.createElement('div');
+                resultElement.classList.add('search-result');
+
+                var linkElement = document.createElement('a');
+                linkElement.href = 'game_details.html'; // Link to the details page
+
+                var imgElement = document.createElement('img');
+                imgElement.src = game.image;
+                imgElement.alt = game.title;
+
+                var h3Element = document.createElement('h3');
+                h3Element.textContent = game.title;
+
+                linkElement.appendChild(imgElement);
+                linkElement.appendChild(h3Element);
+                resultElement.appendChild(linkElement);
+                resultsContainer.appendChild(resultElement);
+            });
+        }
+    </script>
 </body>
 </html>
