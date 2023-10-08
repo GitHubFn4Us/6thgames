@@ -29,3 +29,11 @@
         .button:hover {
             background-color: #45a049;
         }
+
+        footer {
+          text-align: center;
+          padding: 3px;
+          background-color: #70c174;
+          color: white;
+        }
+        
